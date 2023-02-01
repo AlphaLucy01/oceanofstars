@@ -36,7 +36,7 @@ namespace oceanofstars.Content.Items.Weapons.Ranged
         
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            UsefulFunctions.MultipleShot(player, source, position, velocity, type, damage, knockback, 15, 180, true);
+            LIBprojectile.MultipleShot(player, source, position, velocity, type, damage, knockback, 15, 180, true);
             return false;
         }
     }

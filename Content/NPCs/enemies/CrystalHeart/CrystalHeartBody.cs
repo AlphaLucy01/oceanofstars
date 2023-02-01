@@ -15,7 +15,6 @@ namespace oceanofstars.Content.NPCs.enemies.CrystalHeart
     {
         public override void SetStaticDefaults()
         {
-
             DisplayName.SetDefault("Crystal Heart");
             //Main.npcFrameCount[Type] = 6;
             // Influences how the NPC looks in the Bestiary
@@ -50,7 +49,7 @@ namespace oceanofstars.Content.NPCs.enemies.CrystalHeart
             NPC.height = 400;
             NPC.damage = 12;
             NPC.defense = 10;
-            NPC.lifeMax = 1000;
+            NPC.lifeMax = 2000;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0f;
@@ -76,56 +75,10 @@ namespace oceanofstars.Content.NPCs.enemies.CrystalHeart
             {
                 //Music = MusicLoader.GetMusicSlot(Mod, "Assets/Music/Ropocalypse2");
             }
-
         }
         public override void OnSpawn(IEntitySource source)
         {
             
-        }
-        public override void AI()
-        {
-            int midstage = 0;
-            int stage;
-            int part = NPC.lifeMax / 4;
-            int result = (int)((float)NPC.life / (float)part);
-            switch (result)
-            {
-                case 0:
-                    stage = 4;
-                    // HP is 25% or less
-                    break;
-                case 1:
-                    stage = 3;
-                    // HP is between 26% and 50%
-                    break;
-                case 2:
-                    stage = 2;
-                    // HP is between 51% and 75%
-                    break;
-                default:
-                    stage = 1;
-                    // HP is more than 75%
-                    break;
-            }
-            ref float attackTimer = ref NPC.ai[0];
-            int timerMult = NPC.lifeMax / NPC.life;
-            if(timerMult > 10) timerMult = 10;
-            attackTimer++;
-            //
-            if (NPC.Distance(Main.player[NPC.target].position) / 16 < 20) { NPC.immortal = true; } else { NPC.immortal = false; }
-            if(midstage == 1 || midstage == 2 || midstage == 3 || midstage == 4) { NPC.immortal = true; } else { NPC.immortal = false; }
-            //
-            #region dust circle
-            UsefulFunctions.DustRing(NPC.Center, 160, DustID.AmberBolt);
-            #endregion
-        }
-        public void SpawnVein()
-        {
-
-        }
-        public void SpawnCrawler()
-        {
-
         }
     }
 }
