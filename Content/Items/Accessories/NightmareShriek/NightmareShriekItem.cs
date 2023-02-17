@@ -10,6 +10,7 @@ using Terraria.ID;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 using oceanofstars.Content.Buffs.Debuffs.NMSCooldown;
+using oceanofstars.Content.Tiles;
 
 namespace oceanofstars.Content.Items.Accessories.NightmareShriek
 {
@@ -29,10 +30,15 @@ namespace oceanofstars.Content.Items.Accessories.NightmareShriek
         }
         public override void UpdateEquip(Player player)
         {
-            if (!player.HasBuff(ModContent.BuffType<NMSCooldown>()))
+            /*if (!player.HasBuff(ModContent.BuffType<NMSCooldown>()))
             {
                 Projectile.NewProjectile(player.GetSource_Accessory(Item), player.position, Vector2.Zero, ModContent.ProjectileType<NightmareShriekProj>(), 1, 0, Main.myPlayer);
+            }*/
+            if(player.tileInteractionHappened)
+            {
+                Main.NewText("tile interaction happend");
             }
+            //if(player.tile)
         }
     }
     internal class NightmareShriekProj : ModProjectile

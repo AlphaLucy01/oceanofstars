@@ -89,7 +89,7 @@ namespace oceanofstars.Content.Items.Weapons.Ranged
                 {
                     Projectile.Kill();
                     prism.Kill();
-                    LIBprojectile.MultipleShot(Main.player[Projectile.owner], prism.GetSource_FromThis(), prism.position, Projectile.velocity / 2, ModContent.ProjectileType<PrismParticleProj>(), prism.damage, prism.knockBack, Main.rand.Next(10,21), 360, true);
+                    UsefulFunctions.MultipleShot(Main.player[Projectile.owner], prism.GetSource_FromThis(), prism.position, Projectile.velocity / 2, ModContent.ProjectileType<PrismParticleProj>(), prism.damage, prism.knockBack, Main.rand.Next(10,21), 360, true);
 
                 }
             }

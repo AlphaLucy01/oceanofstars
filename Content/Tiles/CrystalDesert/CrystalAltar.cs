@@ -9,7 +9,7 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace oceanofstars.Content.Tiles
+namespace oceanofstars.Content.Tiles.CrystalDesert
 {
     internal class CrystalAltar : ModTile
     {

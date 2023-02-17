@@ -38,7 +38,7 @@ namespace oceanofstars.Content.NPCs.enemies
             NPC.height = 44;
             NPC.friendly = false;
             NPC.lifeMax = 100;
-            NPC.aiStyle = 3;
+            NPC.aiStyle = NPCAIStyleID.Spider;
             NPC.damage = 15;
         }
         public override void AI()

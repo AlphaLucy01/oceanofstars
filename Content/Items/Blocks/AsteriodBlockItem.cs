@@ -7,21 +7,21 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using oceanofstars.Content.Tiles.CrystalDesert;
+using oceanofstars.Content.Tiles;
 
 namespace oceanofstars.Content.Items.Blocks
 {
-    internal class CrystalAltarItem : ModItem
+    internal class AsteriodBlockItem : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Crystal altar");
+            DisplayName.SetDefault("Asteriod Block");
         }
         public override void SetDefaults()
         {
             Item.width = 16;
             Item.height = 16;
-            Item.createTile = ModContent.TileType<CrystalAltar>();
+            Item.createTile = ModContent.TileType<AsteroidBlock>();
             Item.autoReuse = true;
             Item.consumable = true;
             Item.useAnimation = 10;

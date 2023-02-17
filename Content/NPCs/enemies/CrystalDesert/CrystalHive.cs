@@ -11,29 +11,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.PlayerDrawLayer;
 
-namespace oceanofstars.Content.NPCs.enemies.CrystalHive
+namespace oceanofstars.Content.NPCs.enemies.CrystalDesert
 {
     internal class CrystalHive : ModNPC
     {
-
-
-        /*public static int MinionCount()
-        {
-            int count = 5;
-
-            if (Main.expertMode)
-            {
-                count += 5; // Increase by 5 if expert or master mode
-            }
-
-            if (Main.getGoodWorld)
-            {
-                count += 5; // Increase by 5 if using the "For The Worthy" seed
-            }
-
-            return count;
-        }*/
-        
         public static int MinionType()
         {
             return ModContent.NPCType<bob>();
@@ -41,7 +22,7 @@ namespace oceanofstars.Content.NPCs.enemies.CrystalHive
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystal Hive");
-            
+
         }
         public override void SetDefaults()
         {
@@ -69,7 +50,7 @@ namespace oceanofstars.Content.NPCs.enemies.CrystalHive
             if (NPC.ai[0] > 60)
             {
                 NPC.ai[0] = 0;
-                
+
                 int speed = 5;
                 Vector2 velocity = NPC.DirectionTo(player.Center) * speed;
                 Vector2 position = NPC.Center;
@@ -84,16 +65,17 @@ namespace oceanofstars.Content.NPCs.enemies.CrystalHive
                         Vector2 perturbedSpeed = new Vector2(velocity.X, velocity.Y).RotatedByRandom(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .4f;
                         Projectile.NewProjectile(NPC.GetSource_FromAI(), position.X - 2, position.Y - 2, perturbedSpeed.X * speed, perturbedSpeed.Y * speed, ModContent.ProjectileType<CrystalHiveProj>(), NPC.damage, 0f, Main.myPlayer);
                     }
-                } else
+                }
+                else
                 {
                     SpawnMinions();
                 }
             }
             //
-            
+
 
         }
-        public void SpawnMinions() 
+        public void SpawnMinions()
         {
             int count = 1;
             var entitySource = NPC.GetSource_FromAI();
@@ -122,7 +104,7 @@ namespace oceanofstars.Content.NPCs.enemies.CrystalHive
                 {
                     NetMessage.SendData(MessageID.SyncNPC, number: index);
                 }
-                
+
             }
         }
     }

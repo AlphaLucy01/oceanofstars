@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using oceanofstars.Content.Tiles;
+using oceanofstars.Content.Tiles.CrystalDesert;
 
 namespace oceanofstars.Content.Items.Blocks
 {

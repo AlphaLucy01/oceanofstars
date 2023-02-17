@@ -10,14 +10,16 @@ using Terraria.ID;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
-using oceanofstars.Content.NPCs.CollisionTests;
+using oceanofstars.Content.Parkour;
+using oceanofstars.Content.Buffs;
+using oceanofstars.Content.Items.Weapons.Magic;
 
-namespace oceanofstars.Content.Items.Weapons.Magic
+namespace oceanofstars.Content.Items.Misc
 {
     internal class CrystalWand : ModItem
     {
         public int timesFired = 0;
-        
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystal Wand");
@@ -35,19 +37,26 @@ namespace oceanofstars.Content.Items.Weapons.Magic
             Item.DamageType = DamageClass.Magic;
             Item.damage = 10;
             Item.shootSpeed = 15;
-            
+
 
             Item.shoot = ModContent.ProjectileType<PHwandproj>();
         }
-        
+        public override bool AltFunctionUse(Player player)
+        {
+            return true;
+        }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectile(source, Main.MouseWorld, velocity, ModContent.ProjectileType<CollisionTestNPC>(), damage * 2, knockback,player.whoAmI);
-            
-            
+            if (player.altFunctionUse == 2)
+            {
+                player.AddBuff(ModContent.BuffType<UpwardsBoostBuff>(), 600);
+            }
+            else
+            {
+                Projectile.NewProjectile(source, Main.MouseWorld, velocity, ModContent.ProjectileType<UpwardsBoost>(), damage, knockback, player.whoAmI);
+            }
+
             return false;
-            
         }
-        
     }
 }

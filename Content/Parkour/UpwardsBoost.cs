@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using oceanofstars.Content.Buffs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,12 +27,9 @@ namespace oceanofstars.Content.Parkour
                 if (Main.LocalPlayer.getRect().Intersects(Projectile.getRect()))
                 {
                     Projectile.Kill();
-                    if(p.velocity.Y > 0) p.velocity.Y = 0;
-                    p.velocity.Y -= 10;
-                    if(p.velocity.Y < -10) p.velocity.Y = -10;
+                    p.AddBuff(ModContent.BuffType<UpwardsBoostBuff>(), 1200);
                 }
             }
-            
         }
     }
 }

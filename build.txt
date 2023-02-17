@@ -1,3 +1,4 @@
 displayName = Ocean Of Stars
 author = AlphaLucy
 version = 0.1
+modReferences = SubworldLibrary

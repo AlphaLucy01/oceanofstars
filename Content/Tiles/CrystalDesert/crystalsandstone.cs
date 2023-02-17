@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ObjectData;
 using oceanofstars.Content.Items.Blocks;
 
-namespace oceanofstars.Content.Tiles
+namespace oceanofstars.Content.Tiles.CrystalDesert
 {
     internal class crystalsandstone : ModTile
     {

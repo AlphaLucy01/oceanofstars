@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using oceanofstars.Common.Systems;
 
-namespace oceanofstars.Content.Biomes.CrystalDesert
+namespace oceanofstars.Content.Biomes
 {
     internal class CrystalDeserMB : ModBiome
     {
